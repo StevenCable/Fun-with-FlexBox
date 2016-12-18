@@ -1,9 +1,52 @@
 // Imports
-
-
+@import "partials/clearfix";
+@import "partials/general_styles";
+@import "partials/reset";
 
 // 1. Many small items in a grid
+.small-grid-flexbox{
+  // background-color: orange;
 
+
+
+  ul{
+    width: 400px;
+    margin: auto;
+
+    display: flex;
+    flex-flow: row wrap;
+
+    @include respond-to ('medium'){
+      width: 400px;
+    }
+
+    li{
+      //these are the children!
+      //percents are teh easiest way to use flexbox properties
+      flex: 0 0 10% ;
+      //you need this because 10X10% + borders >100%
+      box-sizing: border-box; //sets total area to 100% including padding
+      
+      //to make them square and centered
+      line-height: 40px;
+      height: 40px;
+      text-align: center;
+
+      //this will also make them squared and centered
+      // height: 40px;
+      // display:flex;
+      // justify-content: center;
+      // align-items: center
+
+      @include respond-to ('medium'){
+        line-height: 40px;
+        height: 40px;
+        text-align: center;
+
+      }
+    }
+  }
+}
 
 
 // 2. 2-Column Grid
